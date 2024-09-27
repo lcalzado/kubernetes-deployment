@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: clock-app-pod
+  labels:
+    name: clock-app-pod
+    app: utc-clock-app
+spec:
+  containers:
+    - name: clock-app
+      image: lcalzado/simple-web-clock:v2
+      ports:
+        - containerPort: 5000

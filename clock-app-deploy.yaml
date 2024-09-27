@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: clock-app-deploy
+  labels:
+    name: clock-app-deploy
+    app: utc-clock-app
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      name: clock-app-pod
+      app: utc-clock-app
+  template:
+    metadata:
+      name: clock-app-pod
+      labels:
+        name: clock-app-pod
+        app: utc-clock-app
+    spec:
+      containers:
+        - name: clock-app
+          image: lcalzado/simple-web-clock:v2
+          ports:
+            - containerPort: 5000

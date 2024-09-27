@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: clock-service
+  labels:
+    name: clock-servie
+    app: utc-clock-app
+spec:
+  type: NodePort
+  ports:
+    - port: 80
+      targetPort: 5000
+  selector:
+    name: clock-app-pod
+    app: utc-clock-app
